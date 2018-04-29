@@ -154,9 +154,10 @@ def dashboard(request):
 def auth_report(request):
   
   try:
+    print(request)
     if request.method == 'POST':
       print(request.POST["status"])
-      #print(request.body)
+      print(request.body)
       
       jsonn = {}
       if (str(request.POST["status"]) == "True") or (str(request.POST["status"]) == "False"):
