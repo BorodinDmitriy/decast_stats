@@ -157,15 +157,15 @@ def auth_report(request):
     print(request)
     print(request.body)
     if request.method == 'POST':
-      print(request.POST["status"])
+      #print(request.POST["status"])
       print(request.body)
       
       jsonn = {}
-      if (str(request.POST["status"]) == "True") or (str(request.POST["status"]) == "False"):
-	jsonn["email"] = request.POST["email"]
-	jsonn["status"] = request.POST["status"]
+      #if (str(request.POST["status"]) == "True") or (str(request.POST["status"]) == "False"):
+	#jsonn["email"] = request.POST["email"]
+	#jsonn["status"] = request.POST["status"]
      # else:
-      #jsonn = json.loads(request.body)
+      jsonn = json.loads(request.body)
       print(jsonn)
       
       email = jsonn["email"]

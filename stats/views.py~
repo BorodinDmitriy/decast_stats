@@ -155,6 +155,7 @@ def auth_report(request):
   
   try:
     print(request)
+    print(request.body)
     if request.method == 'POST':
       print(request.POST["status"])
       print(request.body)
