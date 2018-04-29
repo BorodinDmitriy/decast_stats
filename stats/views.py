@@ -53,7 +53,8 @@ def index(request):
       if (is_valid_email == 0) and (email != 'admin'):
 	return redirect('index')
     
-      url = "http://localhost:8004/auth/api-token-auth/"
+      #url = "http://localhost:8004/auth/api-token-auth/"
+      url = "https://decast-stats.herokuapp.com/auth/api-token-auth/"
       headers = {'Content-Type' : 'application/json'}
       data = {'username': email, 'password': password}
       response = (requests.post(url, data=data)).json()

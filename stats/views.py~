@@ -38,6 +38,7 @@ def check_serial_number(serial_number):
     return long(serial_number)
   
 def index(request):
+  TestConsumer.delay()
   try:
     if request.method == 'GET':
       template = loader.get_template('index/index.html')
