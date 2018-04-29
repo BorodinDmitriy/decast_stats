@@ -1,0 +1,47 @@
+<table border="1">
+    <caption>Отчет по авторизациям</caption>
+    <tr>
+        <th>Номер</th>
+        <th>Email</th>
+        <th>Статус</th>
+        <th>Дата</th>
+    </tr>
+    {% for auth_report in auth_reports %}
+        <tr>
+            <th>{{ auth_report.id }}</th>
+            <th>{{ auth_report.email }}</th>
+            {% if auth_report.status %}
+                <th style="color:green;">{{ auth_report.status }}</th>
+            {% else %}
+                <th style="color:red;">{{ auth_report.status }}</th>
+            {% endif %}
+            <th>{{ auth_report.date }}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+<table border="1">
+    <caption>Отчет по квитанциям</caption>
+    <tr>
+        <th>Номер</th>
+        <th>Лицевой счет</th>
+        <th>Тариф</th>
+        <th>Показание</th>
+        <th>Статус</th>
+        <th>Дата</th>
+    </tr>
+    {% for pay_bill_report in pay_bill_reports %}
+        <tr>
+            <th>{{ pay_bill_report.id }}</th>
+            <th>{{ pay_bill_report.personal_account }}</th>
+            <th>{{ pay_bill_report.rate }}</th>
+            <th>{{ pay_bill_report.reading }}</th>
+            {% if pay_bill_report.status %}
+                <th style="color:green;">{{ pay_bill_report.status }}</th>
+            {% else %}
+                <th style="color:red;">{{ pay_bill_report.status }}</th>
+            {% endif %}
+            <th>{{ pay_bill_report.date }}</th>
+        </tr>
+    {% endfor %}
+</table>

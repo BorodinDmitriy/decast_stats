@@ -1,0 +1,133 @@
+<div class="auth_report_info">
+    <div style="text-align: center; width: 370px; font-weight: 700;">Отчет по авторизациям</div>
+    <div>
+	Успешно: 
+	<span style="font-weight: 700;">{{ successful_auth_count }}</span>
+    </div>
+    <div>
+	Неуспешные: 
+	<span style="font-weight: 700;">{{ unsuccessful_auth_count }}</span>
+    </div>
+    <div>
+	Всего: 
+	<span style="font-weight: 700;">{{ auth_count }}</span>
+    </div>
+    <div>
+	Топ-пользователь: 
+	<span style="font-weight: 700;">{{ top_user_email }} - попыток входа: {{ top_user_count }}</span>
+    </div>
+</div>
+<table border="1">
+    <caption>Подробный отчет по авторизациям</caption>
+    <tr>
+        <th>Номер</th>
+        <th>Email</th>
+        <th>Статус</th>
+        <th>Дата</th>
+    </tr>
+    {% for auth_report in auth_reports %}
+        <tr>
+            <th>{{ auth_report.id }}</th>
+            <th>{{ auth_report.email }}</th>
+            {% if auth_report.status %}
+                <th style="color:green;">{{ auth_report.status }}</th>
+            {% else %}
+                <th style="color:red;">{{ auth_report.status }}</th>
+            {% endif %}
+            <th>{{ auth_report.date }}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="pay_bill_info">
+    <div style="text-align: center; width: 500px; font-weight: 700;">Отчет по квитанциям</div>
+    <div>
+	Успешно: 
+	<span style="font-weight: 700;">{{ successful_pay_bill_count }}</span>
+    </div>
+    <div>
+	Неуспешные: 
+	<span style="font-weight: 700;">{{ unsuccessful_pay_bill_count }}</span>
+    </div>
+    <div>
+	Всего: 
+	<span style="font-weight: 700;">{{ pay_bill_count }}</span>
+    </div>
+</div>
+<table border="1">
+    <caption>Подробный отчет по квитанциям</caption>
+    <tr>
+        <th>Номер</th>
+        <th>Лицевой счет</th>
+        <th>Тариф</th>
+        <th>Показание</th>
+        <th>Статус</th>
+        <th>Дата</th>
+    </tr>
+    {% for pay_bill_report in pay_bill_reports %}
+        <tr>
+            <th>{{ pay_bill_report.id }}</th>
+            <th>{{ pay_bill_report.personal_account }}</th>
+            <th>{{ pay_bill_report.rate }}</th>
+            <th>{{ pay_bill_report.reading }}</th>
+            {% if pay_bill_report.status %}
+                <th style="color:green;">{{ pay_bill_report.status }}</th>
+            {% else %}
+                <th style="color:red;">{{ pay_bill_report.status }}</th>
+            {% endif %}
+            <th>{{ pay_bill_report.date }}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="change_account_info">
+    <div style="text-align: center; width: 500px; font-weight: 700;">Отчет по заменам лицевых счетов</div>
+    <div>
+	Успешно: 
+	<span style="font-weight: 700;">{{ successful_change_account_count }}</span>
+    </div>
+    <div>
+	Неуспешные: 
+	<span style="font-weight: 700;">{{ unsuccessful_change_account_count }}</span>
+    </div>
+    <div>
+	Всего: 
+	<span style="font-weight: 700;">{{ change_account_count }}</span>
+    </div>
+</div>
+
+
+<table border="1">
+    <caption>Подробный отчет по заменам лицевых счетов</caption>
+    <tr>
+        <th>Номер</th>
+        <th>Старый счет</th>
+        <th>Новый счет</th>
+        <th>Статус</th>
+        <th>Дата</th>
+    </tr>
+    {% for change_account_report in change_account_reports %}
+        <tr>
+            <th>{{ change_account_report.id }}</th>
+            <th>{{ change_account_report.old }}</th>
+            <th>{{ change_account_report.new }}</th>
+            {% if change_account_report.status %}
+                <th style="color:green;">{{ change_account_report.status }}</th>
+            {% else %}
+                <th style="color:red;">{{ change_account_report.status }}</th>
+            {% endif %}
+            <th>{{ change_account_report.date }}</th>
+        </tr>
+    {% endfor %}
+</table>
