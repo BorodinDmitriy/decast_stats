@@ -1,1 +1,1 @@
-web: gunicorn mobile_backend.wsgi
+web: gunicorn decast_stats.wsgi
