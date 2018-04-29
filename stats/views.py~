@@ -154,6 +154,7 @@ def dashboard(request):
 def auth_report(request):
   
   try:
+    print(request)
     if request.method == 'POST':
       print(request.POST["status"])
       print(request.body)
